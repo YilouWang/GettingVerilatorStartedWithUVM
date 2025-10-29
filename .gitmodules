@@ -1,0 +1,4 @@
+[submodule "uvm_lib/current-patches-deprecated-api"]
+	path = uvm_lib/current-patches-deprecated-api
+	url = https://github.com/antmicro/uvm-verilator.git
+	branch = current-patches-deprecated-api

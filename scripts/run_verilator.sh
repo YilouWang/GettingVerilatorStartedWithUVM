@@ -10,7 +10,7 @@
 #export UVM_HOME="/home/mike/GitHubRepos/antmicro/verilator-verification-features-tests/main/uvm/src"
 #export UVM_HOME="/home/mike/GitHubRepos/antmicro/verilator-verification-features-tests/main/uvm/uvm-1.2/src"
 #export UVM_HOME="/home/mike/GitHubRepos/antmicro/verilator-verification-features-tests/main/uvm/uvm-2017/src"
-export UVM_HOME="/home/mike/GitHubRepos/antmicro/uvm-verilator/current-patches-deprecated-api/src"
+export UVM_HOME="/home/yilou/Desktop/OSVISE/planvtech/GettingVerilatorStartedWithUVM/uvm_lib/current-patches-deprecated-api/src"
 
 # This is a simple example script to run a simulation
   usage() {
@@ -76,6 +76,12 @@ export UVM_HOME="/home/mike/GitHubRepos/antmicro/uvm-verilator/current-patches-d
   fi
   UVM_PKG="$UVM_HOME/uvm_pkg.sv"
 
+# Set Verilator binary path
+  VERILATOR="verilator"
+  if [[ -n "${VERILATOR_ROOT}" ]]; then
+    VERILATOR="$VERILATOR_ROOT/bin/verilator"
+  fi
+
 # Redundant Verilator arguments
 #     +define+VERILATOR \
 #     -sv \
@@ -104,7 +110,7 @@ export UVM_HOME="/home/mike/GitHubRepos/antmicro/uvm-verilator/current-patches-d
 #   --binary \
 #   --build \
 #   --cc \
-verilator \
+$VERILATOR \
     $ARG_VERILATOR \
     --exe \
     --Mdir verilator_obj_dir \
